@@ -9,9 +9,9 @@ PORT = os.getenv("PORT")
 USER = os.getenv("USER")
 
 conn = connect(
-    host="HOST",
+    host=HOST,
     port=PORT,
-    user="USER",
+    user=USER,
     catalog="hive",
     schema="default",
 )
