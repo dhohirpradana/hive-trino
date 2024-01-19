@@ -1,14 +1,22 @@
+import os
 from trino.dbapi import connect
+import dotenv
+
+dotenv.load_dotenv()
+
+HOST = os.getenv("HOST")
+PORT = os.getenv("PORT")
+USER = os.getenv("USER")
 
 conn = connect(
-    host="10.1.111.7",
-    port=30345,
-    user="admin",
+    host="HOST",
+    port=PORT,
+    user="USER",
     catalog="hive",
     schema="default",
 )
 cur = conn.cursor()
-cur.execute("CREATE TABLE IF NOT EXISTS test (id int)")
+cur.execute("SHOW TABLES")
 rows = cur.fetchall()
 
 print(rows)
